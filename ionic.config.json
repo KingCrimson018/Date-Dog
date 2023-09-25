@@ -1,0 +1,7 @@
+{
+  "name": "date-dog",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
