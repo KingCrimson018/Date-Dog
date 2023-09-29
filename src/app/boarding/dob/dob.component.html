@@ -1,0 +1,27 @@
+
+<ion-grid id="container" class="ion-no-padding" mode="ios">
+  <ion-row id="logoTitle">
+      <img src="../../../assets/image/logo3.png" >
+      <ion-label>Fecha de Nacimiento de {{dogS.newDog.name}}</ion-label>
+  </ion-row>
+  <ion-row id="dobBtn">
+    <div>
+      
+      <img src="../../../assets/image/calendario_Datedog.png" >
+      <ion-label for="doob">{{dogS.newDog.dob | date: 'dd-MM-YYYY'}}</ion-label>
+      <ion-input id="doob"  type="date" [(ngModel)]="dogS.newDog.dob" color="light" size="12"></ion-input>
+    </div>
+  </ion-row>
+  <ion-row id="buttons">
+    <ion-col size="5" >
+      <ion-button routerLink="/boarding/breed" id="back" expand="block" shape="round">
+        Atras
+      </ion-button>
+    </ion-col>
+    <ion-col size="5">
+      <ion-button routerLink="/boarding/vaccine"color="secondary"  expand="block" shape="round">
+        Siguiente
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -1,0 +1,74 @@
+ion-grid{
+    background: url('../../../assets/Backgrounds/Background.png');
+    
+    #header{
+        margin-top: 6vh;
+        ion-col{
+            img{
+                object-fit: cover;
+            }
+            ion-label{
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 35px;
+                line-height: 52px;
+                text-align: center;
+    
+                color: #3580FF;
+            }
+        }
+    }
+    #options{
+        margin-top: 2vh;
+        ion-radio-group{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            ion-radio{
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 35px;
+                line-height: 52px;
+                text-align: center;
+    
+                color: #3580FF;
+            }
+        }
+    }
+    #photos{
+        margin-top: 1vh;
+        div{
+            display: flex;
+            flex-direction: row;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            div{
+                flex: 0 0 auto;
+                width: 70%;
+                height: 100%;
+                object-fit: cover;
+                position: relative;
+                input{
+                    opacity: 0;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                }
+            }
+            img{
+                flex: 0 0 auto;
+                width: 70%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    #buttons{
+        margin-top: 2vh;
+
+    }
+}
+

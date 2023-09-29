@@ -1,0 +1,133 @@
+<ion-header>
+  <div id="header">
+    <div id="avatar">
+      <ion-avatar>
+        <img src="../../assets/image/logo3.png"/>
+      </ion-avatar>
+      <ion-label>DateDog</ion-label>
+    </div>
+  </div>
+</ion-header> 
+<ion-content color="light">
+  
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-grid id="container" class="ion-no-padding">
+    <ion-row id="searchBarInicio" class="ion-justify-content-center" (click)="openModal()">
+      <ion-col size="10">
+        <div id="searchbar">
+          <ion-input type="text" placeholder="Search "></ion-input>
+          <div >
+            <ion-icon name="search" slot="icon-only" color="light" ></ion-icon>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    
+    <ion-row id="dogs" >
+      <div *ngFor="let dog of dogsFollowed">
+        <app-followed-dog [dog]="dog"></app-followed-dog>
+      </div>
+      <ion-infinite-scroll #IonInfiniteScroll1 (ionInfinite)="getMoreFollowedDogs($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-row>
+
+  </ion-grid>
+ 
+  <ion-modal #modal trigger="searchBarInicio">
+    <ng-template>
+      <ion-content id="modalContainer">
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="12">
+              <ion-segment value="true" (ionChange)="toogleSearch()" [color]="searchingUsers ? 'primary' : 'secondary'">
+                <ion-segment-button value="true">
+                  <ion-label>Usuarios</ion-label>
+                </ion-segment-button>
+                <ion-segment-button value="falses">
+                  <ion-label>Perros</ion-label>
+                </ion-segment-button>
+              </ion-segment>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="searchingUsers" id="searchBar" class="ion-justify-content-center">
+            <ion-col size="10">
+              <div id="searchbar">
+                <ion-input type="text" [(ngModel)]="filterUser" placeholder="Search"></ion-input>
+                <div >
+                  <ion-icon name="search" slot="icon-only" color="light" (click)="filterUsers()"></ion-icon>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="!searchingUsers" id="searchBar" class="ion-justify-content-center">
+            <ion-col size="10">
+              <div id="searchbar">
+                <ion-input type="text" [(ngModel)]="searchDog" placeholder="Search "></ion-input>
+                <div >
+                  <ion-icon name="search" slot="icon-only" color="light" (click)="getDogs()" ></ion-icon>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="searchingUsers" id="searchUsers" class="searchBoth" >
+            <ion-col size="11">
+              <ion-list>
+                <ion-item *ngFor="let user of users" lines="none" (click)="seeDetailsUser(user)" >
+                  <ion-avatar>
+                    <img [src]="user.imgProfileUrl" />
+                  </ion-avatar>
+                  <ion-label>
+                    <h2>{{user.firstName}}</h2>
+                    <p>{{user.lastName}}</p>
+                  </ion-label>
+                  <ion-icon slot="end" size="large" color="primary" name="person-circle-outline"></ion-icon>
+                </ion-item>
+                <ion-infinite-scroll #IonInfiniteScroll2 (ionInfinite)="getMoreUsers($event)">
+                  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+                </ion-infinite-scroll>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="!searchingUsers" id="icons" class="ion-justify-content-center">
+
+            <ion-col size="7" (click)="getDogs()" id="sex">
+              <ion-radio-group name="sex" [(ngModel)]="sex" mode="md" >
+                <ion-radio mode="md" color="secondary" value="Masculino">Masculino</ion-radio>
+                <ion-radio mode="md" color="secondary" value="Femenino">Femenino</ion-radio>
+              </ion-radio-group>
+            </ion-col>
+            <ion-col size="2">
+              <ion-button (click)="getDogs()" expand="block" fill="clear" color="dark" shape="round">Raza</ion-button>
+            </ion-col>
+            <ion-col size="2">
+              <ion-icon  name="close-outline" size="large" color="dark" (click)="clearAll()"></ion-icon>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="!searchingUsers" id="searchDogs"  class="searchBoth">
+            <ion-col size="11">
+              <ion-list>
+                <ion-item *ngFor="let dog of dogs" lines="none" (click)="seeDogDetails(dog)" >
+                  <ion-avatar>
+                    <img [src]="dog.profilePhotoUrl" />
+                  </ion-avatar>
+                  <ion-label>
+                    <h2>{{dog.name}}</h2>
+                    <p>{{dog.breed}} || {{dog.sex}}</p>
+                  </ion-label>
+                  <ion-icon name="paw-outline" color="secondary"></ion-icon>
+                </ion-item>
+                <ion-infinite-scroll #IonInfiniteScroll3 (ionInfinite)="getMoreDogs($event)">
+                  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+                </ion-infinite-scroll>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

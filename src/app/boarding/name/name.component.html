@@ -1,0 +1,27 @@
+<ion-grid >
+  <ion-row id="logo">
+    <ion-col size="7">
+      <img src="../../../assets/image/logo3.png">
+    </ion-col>
+  </ion-row>
+  <ion-row id="text">
+    <ion-col size="12">
+      <ion-label>Como se llama tu perro/a</ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row id="input">
+    <ion-col size="10">
+      <ion-input type="text" placeholder="" name="name" [(ngModel)]="dogS.newDog.name"></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row id="button">
+    <ion-col size="8">
+      <ion-button routerLink="/boarding/welcome" expand="block" >Siguiente</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<div id="skip">
+  <ion-button routerLink="/tabs/index"  >
+    Skip
+  </ion-button>
+</div>

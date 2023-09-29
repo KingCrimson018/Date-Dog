@@ -1,0 +1,49 @@
+<ion-grid  id="container" mode="ios" color="primary">
+    
+  <ion-row id="logo">
+    <ion-img src="../../../assets/image/logo3.png"></ion-img> 
+  </ion-row>
+  
+  <ion-row  id="form" class="ion-justify-content-center">
+    <ion-col size="10" *ngIf="!sent">
+      <ion-label><h1><b>Recuperar contraseña</b></h1></ion-label>
+      <span>Ingresar tu email para recuperar la contraseña</span>
+    </ion-col>
+    <ion-col size="10" *ngIf="!sent">
+      <ion-label position="stacked">Email</ion-label>
+      <div>
+        <ion-input type="email" name="email" [(ngModel)]="email" ></ion-input>
+      </div>
+    </ion-col>
+    <ion-col size="10" *ngIf="sent">
+      <ion-label><h1><b>Correo Enviado a {{email}}</b></h1></ion-label>
+      <span>Una vez reseteada la contrasena puedes iniciar sesion</span>
+    </ion-col>
+
+    <ion-col size="10" *ngIf="sent">
+      <ion-button routerLink="/boarding/login" expand="block"  shape="round">
+        Iniciar Sesion
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  
+<ion-row id="button" *ngIf="!sent">
+  <ion-col size="8">
+    <ion-button color="primary" expand="block" (click)="sendPasswordCode()">
+      Resetear contraseña
+    </ion-button>
+  </ion-col>
+  <ion-col size="8">
+    <ion-label>
+        Ya tienes una cuenta? 
+        <ion-text color="primary" routerLink="/boarding/login">
+          Iniciar sección
+        </ion-text> 
+    </ion-label>
+  </ion-col>
+</ion-row>
+
+
+</ion-grid>
+
+

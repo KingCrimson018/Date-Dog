@@ -1,0 +1,105 @@
+#container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 77px;
+    background: url('../../../assets/Backgrounds/wallpaper2.png');
+
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    #logoTitle{
+        margin-top: 5vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 10px ;
+        gap: 5px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+
+        img{
+            width: 50%;
+            height: 200px;
+            object-fit: cover;
+        }
+        ion-label{
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 45px;
+            text-align: center;
+            color: var(--ion-color-primary);
+
+        }
+    }
+
+    #nameTextBtn{
+        margin-top: 15vh;
+ 
+        padding: 0px;
+        gap: 39px;
+        width: 100%;
+
+
+
+        /* Inside auto layout */
+
+
+        ion-col{
+            position: relative;
+            
+            height: 40px;
+            border-radius: 25px;
+            background-color: var(--ion-color-light);
+            font-family: 'Poppins';
+            font-size: 24px;
+            ion-icon{
+                position: absolute;
+                right: 25px;
+            }
+        }
+        
+
+    }
+    #buttons{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+        gap: 38px;
+        
+        /* Inside auto layout */
+        
+        flex: none;
+        order: 2;
+        align-self: stretch;
+        flex-grow: 0;
+        ion-col{
+
+            ion-button{
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 27px;
+            }
+        }
+
+    }
+}
+
+#back{
+    color: var(--ion-color-light);
+}

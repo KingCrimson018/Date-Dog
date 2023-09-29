@@ -1,0 +1,29 @@
+<ion-header mode="ios">
+  <ion-toolbar color="tertiary">
+    <ion-title>Mis Perros</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="light">
+  <ion-refresher slot="fixed" (ionRefresh)="refreshDogs($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-grid id="container" class="ion-no-padding" >
+
+    <ion-row id="searchBarInicio" class="ion-justify-content-center">
+      <ion-col size="10">
+        <div id="searchbar">
+          <ion-input type="text" placeholder="Search "></ion-input>
+          <div >
+            <ion-icon name="search" slot="icon-only" color="light" ></ion-icon>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row id="myDogs" >
+      <div *ngFor="let dog of myDogs">
+        <app-dog class="perro"  [dog]="dog"></app-dog>
+      </div>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>

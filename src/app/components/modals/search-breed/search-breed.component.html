@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancelar</ion-button>
+    </ion-buttons>
+    <ion-title>Search Breed</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10">
+      <ion-searchbar placeholder="Search Breed" type="decimal" [(ngModel)]="filterBreed"  ></ion-searchbar>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <ion-list>
+        <ion-item 
+        *ngFor="let breed of breeds "
+        (click)="selectBreed(breed)"
+        >
+          <ion-label>{{breed}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,104 @@
+
+<ion-grid id="container" mode="ios">
+
+  <ion-row id="logo">
+    <ion-img src="../../../assets/image/logo3.png"></ion-img> 
+  </ion-row>
+  
+  
+  
+  <ion-row id="form" >
+    <form [formGroup]="userForm">
+      <ion-row id="form" class="ion-justify-content-center">
+        <ion-col size="6">
+          <ion-label><h1><b>Registro</b></h1></ion-label>
+          <span>Ingresar tu información para acceder</span>
+        </ion-col>
+        <ion-col size="4" id="photo">
+          <div>
+            <ion-input type="file" (change)="uploadImage($event)" ></ion-input>
+            <ion-icon name="camera" size="large"></ion-icon>
+          </div>
+          <img [src]="foto" alt="">
+        </ion-col>
+        
+        <ion-col size="10">
+          <ion-label >Nombre</ion-label>
+          <div>
+            <ion-input type="text" placeholder="Name" name="firstName" formControlName="firstName"></ion-input>
+          </div>
+        </ion-col>
+        <ion-col size="10">
+          <ion-label >Apellido</ion-label>
+          <div>
+            <ion-input type="text" placeholder="Last Name" name="lastName" formControlName="lastName"></ion-input>
+          </div>
+        </ion-col>
+
+        <ion-col size="10">
+          <ion-label >Email</ion-label>
+          <div>
+            <ion-input type="email" name="email" placeholder="Email" formControlName="email"></ion-input>
+          </div>
+        </ion-col>
+
+        <ion-col size="10">
+          <ion-label >Password</ion-label>
+          <div>
+            <ion-input type="password" name="password" [(ngModel)]="password"  placeholder="Password" [ngModelOptions]="{standalone: true}"></ion-input>
+          </div>
+        </ion-col>
+
+        <ion-col size="10" formGroupName="address">
+          <ion-label >Dirección</ion-label>
+          <div>
+            <ion-input type="text" name="street"  placeholder="Calle" formControlName="street"></ion-input>
+            <ion-input type="text" name="city"  placeholder="Ciudad" formControlName="city"></ion-input>
+            <ion-input type="text" name="country"  placeholder="País" formControlName="country"></ion-input>
+          </div>
+        </ion-col>
+
+        <!-- Esto es para el proceso cuando deseen pagar el premium, todavía no esta esquematizado -->
+        <!-- <ion-col size="10"> 
+          <ion-checkbox name="premium" formControlName="premium" labelPlacement="end" class="ion-justify-content-center ion-align-items-center">Premium</ion-checkbox>
+        </ion-col> -->
+        <ion-col size="10" id="socialMedias">  
+          <div>
+            <ion-icon  name="logo-instagram" size="large"></ion-icon> 
+            <ion-input formControlName="instagram" type="text" placeholder="Enter link of instagram"></ion-input>
+          </div>
+
+          <div>  
+            <ion-icon  name="logo-facebook" size="large"></ion-icon> 
+            <ion-input formControlName="facebook" type="text" placeholder="Enter link of facebook"></ion-input>
+          </div>
+        </ion-col>
+      </ion-row>
+     
+
+    </form>
+  </ion-row>
+  
+  <ion-row id="button">
+    <ion-col size="8">
+      <ion-button (click)="registerWithEmail()" color="secondary" expand="block">
+        Registrate
+      </ion-button>
+    </ion-col>
+    <ion-col size="8">
+      <ion-label>
+          Ya tienes una cuenta? 
+          <ion-text color="primary"  routerLink="/boarding/login">
+            Iniciar sección
+          </ion-text> 
+      </ion-label>
+    </ion-col>
+    <ion-col size="8" class="">
+      <ion-label class="ion-padding-top ion-justify-content-center ion-align-items-center">
+        Al crear una cuenta, aceptas la 
+        <ion-text color="secondary">Poloitica de Privacidad</ion-text>
+         y los <ion-text color="secondary">Terminos de uso </ion-text> de <ion-text color="secondary"> Date Dog</ion-text>     
+      </ion-label>
+    </ion-col>
+  </ion-row>    
+</ion-grid>

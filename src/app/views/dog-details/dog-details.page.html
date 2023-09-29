@@ -1,0 +1,154 @@
+
+
+<ion-header mode="ios" color="primary">
+  <ion-toolbar color="tertiary">
+    <ion-buttons *ngIf="!editing" slot="start" mode="md">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-icon *ngIf="isOwner && !editing" slot="end" name="pencil-outline" size="large" (click)="toogleEditing()"></ion-icon>
+    <ion-icon *ngIf="isOwner && editing" slot="end" name="close-outline" size="large" (click)="toogleEditing()"></ion-icon>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content color="light" >
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" id="photo">
+        <img [src]="dog.profilePhotoUrl" >
+      </ion-col>
+      <ion-col size="12" id="info">
+        <div id="infoDetails">
+          <ion-label>
+            <h2>{{dog.name}}</h2>
+            <p>{{dog.breed}}</p>
+          </ion-label>
+          <div>
+            <ion-chip color="primary" mode="ios" id="dob">
+              <ion-label>{{ageString}}</ion-label>
+            </ion-chip>
+            <ion-chip [color]="dog.sex == 'Masculino' ? 'primary' : 'secondary'" mode="md" id="sex" [class]="dog.sex == 'Masculino' ? 'male' : 'female'">
+              <ion-label><ion-icon slot="end" [name]="dog.sex == 'Masculino' ? 'male-outline' : 'female-outline'" size="large" color="tertiary"></ion-icon> </ion-label>
+            </ion-chip>
+          </div>
+          <ion-chip color="tertiary" mode="ios" *ngIf="dog.sex == 'Femenino'" [id]="isOwner ? 'heatOwner' : 'heat'">
+            <ion-icon name="flame-outline" size="large" [color]="dog.heat?.startDate && !dog.heat?.endDate || dog.heat?.endDate && endDate > today ? 'danger' : 'dark'"></ion-icon>
+            <ion-label [color]="dog.heat.startDate && !dog.heat.endDate || dog.heat.endDate && endDate > today ? 'danger' : 'dark'" *ngIf="dog.heat">
+              <h2 *ngIf="dog.heat.endDate">{{dog.heat.endDate | date: "dd-MMM-YYYY"}}</h2>
+              <h2  *ngIf="dog.heat.startDate && !dog.heat.endDate">{{dog.heat.startDate | date: "dd-MMM-YYYY"}}</h2>
+            </ion-label>
+          </ion-chip>
+        </div>
+        <div id="vaccinePhotos">
+          <img *ngIf="dog.vaccinationUrl" [src]="dog.vaccinationUrl[0]" >
+          <img *ngIf="!dog.vaccinationUrl" src="../../../assets/image/PerfilPerro.jpg" alt="">
+        </div>
+      </ion-col>
+      <ion-col size="12" id="ownerInfo" (click)="seeOwnerDetails()">
+       <ion-item lines="none" color="tertiary">
+        <ion-avatar>
+          <img [src]="dog.ownerPhotoUrl" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{dog.ownerName}}</h2>
+          <p>Dueño/a de {{dog.name}}</p>
+        </ion-label>
+        <ion-icon name="arrow-forward" slot="end"></ion-icon>
+       </ion-item>
+      </ion-col>
+      <ion-col size="12" id="aboutDog">
+        <ion-label>
+          <h2>Sobre Mi</h2>
+            <ion-input [disabled]="editing ? false : true" type="text"  [(ngModel)]="editingDog.aboutMe"></ion-input>
+          <!-- <p *ngIf="!dog.aboutMe">Esta mascota aun no tiene descripcion</p> -->
+        </ion-label>
+      </ion-col>
+
+    </ion-row> 
+
+    <!-- Aqui esta el boton de seguir y dejar de seguir al perro -->
+
+    <ion-row *ngIf="!isOwner">
+      <ion-col size="12">
+        <ion-icon [name]="isFollowed ? 'paw' : 'paw-outline'" color="primary" size="large" (click)="toogleFollowDog()"></ion-icon>
+      </ion-col>
+    </ion-row>
+
+    <!-- Aqui termina el boton de seguir y dejar de seguir al perro -->
+
+    <ion-row *ngIf="dog.photosUrl" >
+      <ion-label id="titlePhotos" class="photosLabel">
+        <h1>Fotos</h1>
+        <div *ngIf="editing">
+          <ion-icon  name="add" size="large"></ion-icon>
+          <input type="file" (change)="addPhoto($event)" name="" id="">
+        </div>
+      </ion-label>
+      <ion-col *ngFor="let photo of editingDog.photosUrl" class="photos" size="12" >
+        <img [src]="photo" alt="">
+        <ion-icon *ngIf="editing" name="trash-outline"  size="large" (click)="deletePhoto(photo)"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="!dog.photosUrl" >
+      <ion-label class="titlePhotos" class="photosLabel">
+        <h1>Fotos</h1>
+        <p>Esta mascota no tiene fotos</p>
+        <div *ngIf="editing">
+          <ion-icon  name="add" size="large"></ion-icon>
+          <input type="file" (change)="addPhoto($event)" name="" id="">
+        </div>
+      </ion-label>
+      <ion-col class="photos" size="12" >
+        <img src="../../../assets/image/PerfilPerro.jpg" alt="">
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="dog.vaccinationUrl" >
+      <ion-label id="titlePhotos" class="photosLabel">
+        <h1>Fotos Vacunas</h1>
+        <div *ngIf="editing">
+          <ion-icon  name="add" size="large"></ion-icon>
+          <input type="file" (change)="uploadImageVaccine($event)" name="" id="">
+        </div>
+      </ion-label>
+      <ion-col *ngFor="let photo of editingDog.vaccinationUrl" class="photos" size="12" >
+        <img [src]="photo" alt="">
+        <ion-icon *ngIf="editing" name="trash-outline"  size="large" (click)="deletePhotoVaccine(photo)"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="!dog.vaccinationUrl" >
+      <ion-label class="titlePhotos" class="photosLabel">
+        <h1>Fotos Vacunas</h1>
+        <p>Esta mascota no tiene fotos de vacunas</p>
+        <div *ngIf="editing">
+          <ion-icon  name="add" size="large"></ion-icon>
+          <input type="file" (change)="uploadImageVaccine($event)" name="" id="">
+        </div>
+      </ion-label>
+      <ion-col class="photos" size="12" >
+        <img src="../../../assets/image/PerfilPerro.jpg" alt="">
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center" *ngIf="editing" class="ion-justify-content-between">
+      <ion-col size="4">
+        <ion-button (click)="deleteDog(dog)" expand="block" color="danger"> Eliminar </ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button (click)="toogleEditing()" expand="block" color="secondary">Cancelar </ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button (click)="saveDog()" expand="block" color="primary" >Guardar </ion-button>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-modal #modal trigger="heatOwner">
+    <ng-template>
+      <app-dog-heat [dog]="dog">
+
+      </app-dog-heat>
+    </ng-template>
+  </ion-modal>
+</ion-content>

@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-title>Edit {{dog.name}} Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid id="container" mode="ios" class="ion-no-padding">
+    
+    <ion-row id="form" class="ion-justify-content-center">
+        <ion-col size="4" id="photo">
+          <div>
+            <ion-input type="file" (change)="uploadImage($event)" ></ion-input>
+            <ion-icon name="camera" size="large"></ion-icon>
+          </div>
+          <img [src]="dog.profilePhotoUrl" >
+        </ion-col>
+        
+        <ion-col size="10" id="name">
+          <ion-label>
+            <h2>Name</h2>
+            <p>Name of the Dog</p>
+          </ion-label>
+          <div>
+            <ion-input  type="text" placeholder="Name" name="name" [(ngModel)]="dog.name" ></ion-input>
+          </div>
+        </ion-col>
+        <ion-col size="12"id="photosContainer">
+          <ion-item lines="none">
+            <ion-label>
+              <h2>Photos</h2>
+              <p>Photos of {{dog.name}}</p>
+            </ion-label>
+            <div slot="end">
+              <ion-input type="file" (change)="addPhoto($event)"></ion-input>
+              <ion-icon slot="end" size="large"  name="add" ></ion-icon>
+            </div>
+          </ion-item>
+          <div >
+            <div *ngFor="let url of dog.photosUrl">
+              <img [src]="url">
+              <ion-icon size="large" name="trash-outline" (click)="presentAlert()"></ion-icon>
+            </div>
+            <div *ngIf="!dog.photosUrl">
+              <img src="../../../assets/image/image-not-found.png" alt="">
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="12" id="vaccineContainer">
+          <ion-item lines="none">
+            <ion-label>
+              <h2>Vaccine Photos</h2>
+              <p>Vaccine Photos of {{dog.name}}</p>
+            </ion-label>
+            <div slot="end">
+              <ion-input type="file" (change)="uploadVaccineImage($event)"></ion-input>
+              <ion-icon slot="end" size="large" name="add"></ion-icon>
+            </div>
+          </ion-item>
+          <div >
+            <div *ngFor="let url of dog.vaccinationUrl">
+              <img [src]="url">
+              <ion-icon size="large" name="trash-outline" (click)="presentAlert()"></ion-icon>
+            </div>
+            <div *ngIf="!dog.vaccinationUrl">
+              <img src="../../../assets/image/image-not-found.png" alt="">
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="12" id="aboutMe">
+          <ion-label>
+            <h2>About Me</h2>
+            <p>Write a brief text about {{dog.name}} (Max: 100)</p>
+          </ion-label>
+          <textarea name="aboutMe" [(ngModel)]="dog.aboutMe" cols="30" rows="10" maxlength="100"></textarea>
+        </ion-col>
+
+    </ion-row>
+    <ion-row class="ion-justify-content-evenly" id="buttons">
+      <ion-col size="6">
+        <ion-button expand="block" shape="round" id="cancel">
+          Cancelar
+        </ion-button>      
+        <ion-alert
+          trigger="cancel"
+          header="Seguro quieres descartar los cambios de {{dog.name}}?"
+          [buttons]="alertButtonsCancel"
+    ></ion-alert>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button  expand="block" shape="round" id="update">
+          Guardar
+        </ion-button>  
+        <ion-alert
+        trigger="update"
+        header="Seguro quieres guardar los cambios a {{dog.name}}?"
+        [buttons]="alertButtonsUpdate"
+  ></ion-alert>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+</ion-content>

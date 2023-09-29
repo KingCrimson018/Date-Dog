@@ -1,0 +1,42 @@
+ion-grid{
+    background: url('../../../assets/Backgrounds/wallpaper2.png');
+    width: 100%;
+
+    #header{
+        margin-top: 2vh;
+        ion-col{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            img{
+                border-radius: 100%;
+                width: 200px;
+                height: 200px;
+            }
+            ion-label{
+                font-size: 32px;
+                text-align: center;
+            }
+            small{
+                color: var(--ion-color-primary);
+                font-size: 14px;
+            }
+        }
+    }
+    #options{
+        margin-top: 2vh;
+        ion-col{
+            ion-list{
+                height: 130vh;
+                background-color: rgba(#f4f5f8, 0.3);
+                ion-item{
+                    --background: rgba(red, 1);
+                    height: 6vh;
+                    margin: 2vh 0vh;
+
+                }
+            }
+        }
+    }
+
+}

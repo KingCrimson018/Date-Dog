@@ -1,0 +1,28 @@
+<ion-grid id="container">
+  <ion-row id="title" class="ion-justify-content-center">
+    <ion-label>Bienvenido {{dogS.newDog.name}}</ion-label>
+  </ion-row>
+  <ion-row id="image" class="ion-justify-content-center">
+    <ion-col size="6">
+      <div>
+        <ion-icon slot="start" size="large" name="camera"></ion-icon>
+        <input type="file" (change)="uploadImage($event)">
+  
+      </div>
+        
+      <img [src]="dogS.newDog.profilePhotoUrl">
+    </ion-col>
+  </ion-row>
+  <ion-row id="buttons" class="ion-justify-content-center">
+    <ion-col size="5">
+      <ion-button id="back" routerLink="/boarding/name" expand="block"  >
+        Atras
+      </ion-button>
+    </ion-col>
+    <ion-col size="5">
+      <ion-button color="secondary" routerLink="/boarding/sex"  expand="block" >
+        Siguiente
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

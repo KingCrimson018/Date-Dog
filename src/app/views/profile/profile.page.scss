@@ -1,0 +1,183 @@
+#container{
+    background-color: var(--ion-color-tertiary);
+    height: auto;
+    position: relative;
+    #header{
+        background-color: var(--ion-color-light);
+        border-radius: 0px 0px 25px 25px;
+        
+        overflow-x: hidden;
+        ion-col{
+            margin-top: 3vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            #followed{
+                width: 35%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                ion-label{
+                    text-align: center;
+                    h2{
+                        font-size: 24px;
+                    }
+                    p{
+                        font-size: 18px;
+                    }
+                }
+            }
+            #followers{
+                width: 35%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                ion-label{
+                    text-align: center;
+                    h2{
+                        font-size: 24px;
+                    }
+                    p{
+                        font-size: 18px;
+                    }
+                }
+            }
+            #profileInfo{
+                width: 30%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 100px;
+                    height: 100px;
+                    object-fit: cover;
+                    border-radius: 100%;
+                }
+            }
+            #info{
+                margin-top: 2vh;
+                margin-bottom: 1vh;
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                ion-label{
+                    text-align: center;
+                    h2{
+                        font-size: 32px;
+                    }
+                }
+                ion-icon{
+                    margin-top: 2vh;
+                }
+            }
+        }
+    }
+    #dogs{
+        height: 100%;
+        ion-col{
+            padding: 1%;
+            margin-top: 1.5vh;
+            border-radius: 15px;
+            background-color: var(--ion-color-light);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            img{
+                border-radius: 10px;
+                width: 20%;
+                height: 100%;
+                object-fit: cover;
+            }
+            #dogInfo{
+                width: 20%;
+                overflow-x: scroll;
+            }
+            .info{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                #age{
+                    background-color: #ff62432f;
+                    color: #FF6243;
+                }
+                #sex{
+                    background-color: #ffae3436;
+                    color: #FFAE34
+
+                }
+            }
+            .heat{
+                width: 10%;
+            }
+        }
+    }
+    #aboutMe{
+
+        ion-col{
+            position: relative;
+            border-radius: 15px;
+            margin-top: 2vh;
+            height: 70px;
+            background-color: var(--ion-color-light);
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+            a{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0%;
+                left: 0%;
+                opacity: 0;
+            }
+            ion-icon{
+                margin-left: 4%;
+            }
+            ion-label{
+                margin-left: 4%;
+            }
+            #instagram{
+                color:  #f09433;
+            }
+            #facebook{
+                color: #003bfe;
+            }
+            #whatsapp{
+                color: #37fe00;
+            }
+        }
+        #names{
+            ion-icon{
+                margin-left: 4%;
+            }
+            ion-label{
+                margin-left: 10%;
+            }
+            #lastName{
+                margin-left: 20%;
+            }
+        }
+    }
+}
+::-webkit-scrollbar{
+    display: none;
+}
+
+#whatsappText{
+    opacity: 0;
+    position: absolute;
+}
+ion-header{
+    div{
+        height: 7vh;
+        background-color: red;
+    }
+}

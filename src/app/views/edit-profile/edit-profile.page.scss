@@ -1,0 +1,63 @@
+
+ion-grid{
+    #info{
+        #photo{
+            position: relative;
+            input{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+            }
+        } 
+        #buttonSave{
+            background-color: #00000000;
+            ion-button{
+                width: 100%;
+            }
+        }
+        ion-col{
+            position: relative;
+            border-radius: 15px;
+            margin-top: 2vh;
+            height: 70px;
+            background-color: var(--ion-color-light);
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+            ion-avatar{
+                margin-left: 4%;
+                width: 60px;
+                height: 60px;
+            }
+            ion-icon{
+                margin-left: 4%;
+            }
+            ion-label{
+                margin-left: 4%;
+            }
+            #instagram{
+                color:  #f09433;
+            }
+            #facebook{
+                color: #003bfe;
+            }
+            #whatsapp{
+                color: #37fe00;
+            }
+        }
+        #names{
+            ion-icon{
+                margin-left: 4%;
+                width: 15%;
+            }
+            ion-label{
+                margin-left: 10%;
+            }
+            #lastName{
+                margin-left: 0%;
+            }
+        }
+    }
+}

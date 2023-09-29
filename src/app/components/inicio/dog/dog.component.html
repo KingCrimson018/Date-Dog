@@ -1,0 +1,23 @@
+<div class="perro"  (click)="seeDetails()">
+
+  <div id="image">
+    <img [src]="dog.profilePhotoUrl" alt="ProfilePhoto">
+  </div>
+  <div id="info">
+    <div>
+      <ion-label>
+        <h2>{{dog.name}}</h2>
+        <p>{{dog.breed}}</p>
+      </ion-label>
+      <ion-icon *ngIf="dog.heat" name="flame-outline" [color]="dog.heat.startDate && !dog.heat.endDate || dog.heat.endDate && endDate > today ? 'danger' : 'dark'"  size="large"></ion-icon>
+    </div>
+    <div>
+      <ion-chip color="primary" mode="ios" id="dob" >
+        <ion-label>{{dog.dob | date: "dd-MMM-YYYY"}}</ion-label>
+      </ion-chip>
+      <ion-chip [color]="dog.sex == 'Masculino' ? 'primary' : 'secondary'" mode="md" id="sex" [class]="dog.sex == 'Masculino' ? 'male' : 'female'">
+        <ion-label><ion-icon slot="start" [name]="dog.sex == 'Masculino' ? 'male-outline' : 'female-outline'" size="large" color="tertiary"></ion-icon></ion-label>
+      </ion-chip>
+    </div>
+  </div>
+</div>

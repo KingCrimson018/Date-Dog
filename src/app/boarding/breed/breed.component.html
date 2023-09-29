@@ -1,0 +1,28 @@
+<p>
+  breed works!
+</p>
+
+<ion-grid id="container">
+  <ion-row id="logoTitle">
+      <img src="../../../assets/image/logo3.png" >
+      <ion-label>Cual es la raza de {{this.dogS.newDog.name}}</ion-label>
+  </ion-row>
+  <ion-row id="nameTextBtn" class="ion-justify-content-center">
+    <ion-col size="9" (click)="openModalSearch()">
+      <ion-label>{{dogS.newDog.breed}}</ion-label>
+      <ion-icon name="search" color="secondary" size="large" (click)="openModalSearch()"></ion-icon>
+    </ion-col>
+  </ion-row>
+  <ion-row id="buttons">
+    <ion-col size="5" >
+      <ion-button routerLink="/boarding/sex" id="back" expand="block" shape="round">
+        Atras
+      </ion-button>
+    </ion-col>
+    <ion-col size="5">
+      <ion-button routerLink="/boarding/dob" color="secondary"  expand="block" shape="round">
+        Siguiente
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

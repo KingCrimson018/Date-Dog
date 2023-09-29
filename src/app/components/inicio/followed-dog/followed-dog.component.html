@@ -1,0 +1,22 @@
+<div class="perro"  (click)="seeDetails()">
+
+  <div id="image">
+    <img [src]="dog.dogImgUrl" alt="ProfilePhoto">
+  </div>
+  <div id="info">
+    <div>
+      <ion-label>
+        <h2>{{dog.dogName}}</h2>
+        <p>{{dog.dogBreed}}</p>
+      </ion-label>
+    </div>
+    <div>
+      <ion-chip color="primary" mode="ios" id="dob" >
+        <ion-label>{{dog.dogDob | date: "dd-MMM-YYYY"}}</ion-label>
+      </ion-chip>
+      <ion-chip [color]="dog.dogSex == 'Masculino' ? 'primary' : 'secondary'" mode="md" id="sex" [class]="dog.dogSex == 'Masculino' ? 'male' : 'female'">
+        <ion-label><ion-icon slot="start" [name]="dog.dogSex == 'Masculino' ? 'male-outline' : 'female-outline'" size="large" color="tertiary"></ion-icon></ion-label>
+      </ion-chip>
+    </div>
+  </div>
+</div>

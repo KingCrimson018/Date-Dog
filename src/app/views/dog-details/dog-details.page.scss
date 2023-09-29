@@ -1,0 +1,173 @@
+ion-header{
+    background-color: #00000000;
+    border-radius: 0px 0px 50px 50px;
+    ion-toolbar{
+        height: 7vh;
+        border-radius: 0px 0px 25px 25px;
+
+        border-bottom: 1px solid black;
+    }
+}
+ion-grid{
+
+    padding: 3%;
+    ion-row{
+        #photo{
+            width: 100%;
+            height: 45vh;
+            padding: 0px;
+            img{
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                border-radius: 50px 15px 0px 0px;
+            }
+        }
+        #info{
+            margin-top: -5vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            padding: 2%;
+            background-color: var(--ion-color-tertiary);
+            border-radius: 50px 0px 10px 10px;
+            #infoDetails{
+                margin-top: 1vh;
+                width: 55%;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                ion-label{
+                    margin-left: 2%;
+                }
+                div{
+                    width: 100%;
+                    margin-left: 2%;
+                    ion-chip{
+                        width: 45%;
+                    }
+                }
+                ion-chip{
+                    align-self: center;
+                    width: 85%;
+                }
+            }
+            #vaccinePhotos{
+                margin-top: 1vh;
+                width: 45%;
+                height: 18vh;
+                padding: 3%;
+                position: relative;
+                img{
+                    object-fit: cover;
+                    border-radius: 15px;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        #ownerInfo{ 
+            margin-top: 2vh;
+            background-color: var(--ion-color-tertiary);
+            border-radius: 25px;
+            ion-item{
+                border-radius: 25px;
+                ion-avatar{
+                    height: 50px;
+                    width: 50px;
+                }
+                ion-label{
+                    margin-left: 4%;
+                }
+            }
+        }
+        #aboutDog{
+            background-color: var(--ion-color-tertiary);
+            border-radius: 25px;
+            margin-top: 2vh;
+            padding: 5px;
+            ion-label{
+                p{
+                    height: 8vh;
+                }
+            }
+
+        }
+        #titlePhotos{
+            margin-top: 1vh;
+        }
+        .photos{
+            width: 100%;
+            height: 35vh;
+            background-color: var(--ion-color-tertiary);
+            padding: 15px;
+            margin-top: 2vh;
+            border-radius: 25px;
+            img{
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                border-radius: 25px;
+            }
+            ion-icon{
+                position: absolute;
+                bottom: 3vh;
+                left: 8%;
+                background-color: rgba(255, 0, 0, 0.601);
+                padding: 10px;
+                border-radius: 100%;
+            }
+        }
+
+    }
+}
+
+.photosLabel{
+    width: 100%;
+    position: relative;
+    div{
+        position: absolute;
+        top: 0vh;
+        right: 5%;
+        input{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+        ion-icon{
+
+            padding: 0.5px;
+            border-radius: 100%;
+        }
+    }
+}
+#dob{
+    background-color: #ff62433c;
+    color: #FF6243;
+}
+
+.male{
+    background-color: #0a5afacc;
+    color: #ffffff;  
+}
+.female{
+    background-color: #fa0a6ecc;
+    color: #ffffff;  
+}
+
+
+//--Modals--//
+ion-modal {
+    --height: 35%;
+    --width: 85%;
+    --border-radius: 16px;
+    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+  
+  ion-modal::part(backdrop) {
+    background: rgba(209, 213, 219);
+    opacity: 1;
+  }

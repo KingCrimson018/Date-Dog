@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "235103660621",
+    "project_id": "perros-97655",
+    "storage_bucket": "perros-97655.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235103660621:android:37ef11394dde97c1330a04",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235103660621-ujqj7de9o0u0im3okf6ks1for3mlpjkd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjuielC01yrgYd4Cq21xXZor5pOhnlBQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235103660621-g1bq6n79e5g2dqj1k4nc65s6se6ucap1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

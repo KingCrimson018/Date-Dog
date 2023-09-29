@@ -1,0 +1,170 @@
+#photo{
+    position: relative;
+    margin: 2vh 0px;
+    div{
+        position: absolute;
+        width: 55px;
+        height: 55px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        bottom: -20%;
+        right: 1%;
+        border-radius: 50%;
+        background-color: var(--ion-color-primary);
+        ion-input{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+    }
+    img{
+        width: 100%;
+        height: 120%;
+        border-radius: 100%;
+    }
+
+}
+#name{
+    margin: 2vh 0px;
+    div{
+        margin-top: 1vh;
+        margin-left: -2%;
+        background-color: #aaaaaa;
+        border-radius: 20px;
+        ion-input{
+            margin-left: 2%;
+        }
+    }
+
+}
+#photosContainer{
+    ion-item{
+        div{
+            background: var(--ion-color-primary);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+            position: relative;
+            ion-input{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+            }
+        }
+    }
+    div{
+        margin: 2vh 0px;
+        display: flex;
+        flex-direction: row;
+        overflow-x: scroll;
+        div{
+            flex: 0 0 auto;
+            width: 250px;
+            height: 250px;
+            position: relative;
+            overflow-y: hidden;
+            margin: 0px 2%;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+    
+            }
+            ion-icon{
+                position: absolute;
+                bottom: 1vh;
+                right: 3%;
+                padding: 4%;
+                border-radius: 100%;
+                background-color: #ff0000c7;
+                color: var(--ion-color-light);
+    
+            }
+    
+        }
+    }
+
+}
+#vaccineContainer{
+    ion-item{
+        div{
+            background: var(--ion-color-primary);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+            position: relative;
+            ion-input{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+            }
+        }
+    }
+    div{
+        margin: 2vh 0px;
+        display: flex;
+        flex-direction: row;
+        overflow-x: scroll;
+        div{
+            flex: 0 0 auto;
+            width: 250px;
+            height: 250px;
+            position: relative;
+            overflow-y: hidden;
+            margin: 0px 2%;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+    
+            }
+            ion-icon{
+                position: absolute;
+                bottom: 1vh;
+                right: 3%;
+                padding: 4%;
+                border-radius: 100%;
+                background-color: #ff0000c7;
+                color: var(--ion-color-light);
+    
+            }
+    
+        }
+    }
+}
+#aboutMe{
+    margin: 2vh 0px;
+    padding: 2%;
+    ion-label{
+        h2{
+            margin-left: 2%;
+        }
+        p{
+            margin-left: 2%;
+        }
+    }
+    textarea{
+        width: 100%;
+        border-width: 2px;
+        border-color: var(--ion-color-primary);
+        border-radius: 20px;
+        padding: 2%;
+    }
+}
+
+::-webkit-scrollbar{
+    display: none;
+}

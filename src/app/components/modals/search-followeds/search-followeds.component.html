@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancelar</ion-button>
+    </ion-buttons>
+    <ion-title>Search User</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10">
+      <ion-searchbar placeholder="Search User" type="decimal" [(ngModel)]="filterUser" ></ion-searchbar>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <ion-list>
+        <ion-item *ngFor="let u of followeds" (click)="seeDetailsFollowed(u)">
+          <ion-avatar >
+            <img [src]="u.followedImgUrl" />
+          </ion-avatar>
+          <ion-label>
+            <h3>{{u.followedFirstName}}</h3>
+            <p>{{u.followedLastName}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-infinite-scroll (ionInfinite)="getMoreFolloweds($event)">
+          <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-content>

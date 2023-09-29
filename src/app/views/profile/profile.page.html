@@ -1,0 +1,119 @@
+<ion-header >
+  <ion-toolbar color="tertiary"  class="ion-no-border" mode="md">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+<ion-content >
+  <ion-grid fixed class="ion-no-padding" id="container">
+    <ion-row id="header" class="ion-justify-content-center">
+      <ion-col size="12">
+        <div id="followed" (click)="openModalFolloweds()">
+          <ion-label>
+            <h2>{{user.followedsCant}}</h2>
+            <p>Followed</p>
+          </ion-label>
+        </div>
+        <div id="profileInfo">
+          <img [src]="user.imgProfileUrl">
+        </div>
+        <div id="followers" (click)="openModalFollowers()" >
+          <ion-label>
+            <h2>{{user.followersCant}}</h2>
+            <p>Followers</p>
+          </ion-label>
+        </div>
+        <div id="info">
+          <ion-label>
+            <h2>{{user.firstName}}</h2>
+            <p>{{user.lastName}}</p>
+          </ion-label>
+          <ion-icon (click)="toogleFollower()" slot="icon-only" [name]="followed ? 'paw' : 'paw-outline'" color="primary" size="large"></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col size="12">
+        <ion-segment [(ngModel)]="viewDogs" color="secondary" value="view">
+          <ion-segment-button value="view">
+            <ion-label>Mascotas</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="">
+            <ion-label>Sobre Mi</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
+
+    <!-- Dogs View -->
+    <ion-row id="dogs" class="ion-justify-content-center" *ngIf="viewDogs">
+      <ion-col size="11" *ngFor="let dog of dogs" (click)="openDogDetails(dog)">
+        <img [src]="dog.profilePhotoUrl" >
+        <ion-label id="dogInfo">
+          <h2>{{dog.name}}</h2>
+          <p>{{dog.breed}}</p>
+        </ion-label>
+        <div class="info">
+          <ion-chip color="primary" mode="ios" id="age">
+            <ion-label>{{dog.dob | date: "dd-MMM-YYYY"}}</ion-label>
+          </ion-chip>
+          <ion-chip color="primary" mode="ios" id="sex">
+            <ion-label>{{dog.sex}}</ion-label>
+          </ion-chip>
+        </div>
+        <div class="heat">
+          <ion-icon *ngIf="dog.heat" name="flame-outline" size="large" color="danger"></ion-icon>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- About Me View -->
+    <ion-row id="aboutMe" class="ion-justify-content-center" *ngIf="!viewDogs">
+      <ion-col size="11" id="names">
+        <ion-icon name="person-circle-outline" size="large" color="primary"></ion-icon>
+        <ion-label>
+          <h2>{{user.firstName}}</h2>
+          <p>Nombre</p>
+        </ion-label>
+        <ion-label id="lastName">
+          <h2>{{user.lastName}}</h2>
+          <p>Apellido</p>
+        </ion-label>
+      </ion-col>
+      <ion-col size="11">
+        <ion-icon name="mail" color="secondary" size="large" ></ion-icon>
+        <ion-label>
+          <h2>{{user.email}}</h2>
+          <p>Correo</p>
+        </ion-label>
+      </ion-col>
+      <ion-col size="11" *ngIf="user.instagram">
+        <a [href]="linkInstagram + user.instagram"></a>
+        <ion-icon name="logo-instagram" size="large" id="instagram"></ion-icon>
+        <ion-label>
+          <h2>{{user.instagram}}</h2>
+          <p>Instagram</p>
+        </ion-label>
+      </ion-col>
+      <ion-col size="11" *ngIf="user.facebook">
+        <a [href]="linkFacebook + user.facebook"></a>
+        <ion-icon name="logo-facebook" size="large" id="facebook"></ion-icon>
+        <ion-label>
+          <h2>{{user.facebook}}</h2>
+          <p>Facebook</p>
+        </ion-label>
+      </ion-col>
+      <ion-col size="11" *ngIf="user.whatsapp" (click)="copyWhatsapp()">
+        <ion-icon name="logo-whatsapp" size="large" id="whatsapp"></ion-icon>
+        <ion-label>
+          <h2>{{user.whatsapp}}</h2>
+          <p>Whatsapp</p>
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  
+</ion-content>

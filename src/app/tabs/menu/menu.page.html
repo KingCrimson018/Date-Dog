@@ -1,0 +1,48 @@
+<ion-grid class="ion-no-padding" id="container">
+  <ion-row id="header" class="ion-justify-content-center">
+    <ion-col size="7">
+      <img [src]="userS.logged?.imgProfileUrl">
+      <ion-label>{{userS.logged?.firstName}} {{userS.logged?.lastName}}</ion-label>
+      <small>{{userS.logged?.email}}</small>
+    </ion-col>
+  </ion-row>
+  <ion-row id="options">
+    <ion-col size="12">
+      <ion-list >
+        <ion-item button (click)="addDog()">
+          <ion-icon name="add" size="large" class="firstIcon"></ion-icon>
+          <ion-label>
+            <h2>Add Dog</h2>
+            <p>There is a limit of 5 Dogs</p>
+          </ion-label> 
+        </ion-item>
+        <ion-item button (click)="editProfile()">
+          <ion-icon name="settings" size="large"  class="firstIcon"></ion-icon>
+          <ion-label>
+            <h2>Edit Profile</h2>
+            <p>Edit your profile details</p>
+          </ion-label>
+        </ion-item>
+        <ion-item (click)="presentAlert('Opcion Fuera de servicio', 'Las notificaciones aun no han sido agregadas')">
+          <ion-icon name="notifications" size="large" class="firstIcon"></ion-icon>
+          <ion-label>
+            <h2>Notifications</h2>
+            <p>Enable or Disable Notifications</p>
+          </ion-label>
+          <ion-checkbox ></ion-checkbox>
+        </ion-item>
+        <ion-item button (click)="presentAlert('Politicas aun no agregadas', 'Politicas de uso aun sin agregar, ya que esto es un beta')">
+          <ion-icon name="document-text-outline" size="large"  class="firstIcon"></ion-icon>
+          <ion-label>
+            <h2>Privacy and Policy</h2>
+            <p>Read Terms of privacy and policies</p>
+          </ion-label>
+        </ion-item>
+        <ion-item button (click)="logOut()">
+          <ion-icon name="log-out-outline" size="large" class="firstIcon"></ion-icon>
+          <ion-label>Log Out</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>

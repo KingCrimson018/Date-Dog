@@ -1,0 +1,220 @@
+ion-grid::before {
+    content: "";
+    position: absolute;
+    height: 130vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+ion-grid #logo{
+    content: "";
+    position: relative;
+    background: transparent;
+}
+
+#container{
+    background-image: url('../../../assets/Backgrounds/wallpaper3.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    overflow-y: scroll;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0px 0px;
+    gap: 16px;
+    background-attachment: fixed;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+
+    #logo{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+
+        ion-img{
+            width: 30%;
+        }
+    }
+    #form{
+        
+        padding: 0px;
+        gap: 10px;
+        margin: 2vh 0vh;
+
+
+        ion-col{
+
+            ion-label{
+                margin-left: 3%;
+                // font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 14px;
+                color: #221E1F;
+
+                /* Inside auto layout */
+
+                flex: none;
+                order: 0;
+                align-self: stretch;
+                flex-grow: 0;
+            }
+
+
+            div{
+                border-color: #000000;
+                border-radius: 25px;
+                background-color: var(--ion-color-light);
+                font-size: 16px;
+                ion-input{
+                    overflow-x: hidden;
+                    margin-left: 5%;
+                    font-size: 14px;
+                }
+            }
+
+            ion-checkbox{
+                font-size: 14px;
+                --size: 18px;
+            }
+
+            
+
+            ion-icon{
+                padding-left: 25px;
+            }
+
+            span{
+                font-size: 13px;
+                color: darkgray;
+            }
+
+        }
+        #socialMedias{
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            div{
+                margin-top: 15px;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                font-size: 16px;
+                ion-icon{
+                    margin-top: 0.3vh;
+                }
+            }
+        }
+    }
+
+    #button{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0px;
+        isolation: isolate;
+        
+        /* Inside auto layout */
+
+        flex: none;
+        order: 3;
+        align-self: stretch;
+        flex-grow: 0;
+
+        ion-col{
+
+            ion-button{
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 300px;
+                font-size: 14px;
+                line-height: 20px;
+            }
+            ion-label{
+                display:block;
+                margin-left: 3%;
+                align-items: center;
+                justify-content: center;
+                // font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 14px;
+                color: #221E1F;
+
+                /* Inside auto layout */
+
+                flex: none;
+                order: 0;
+                align-self:center;
+                flex-grow: 0;
+            }
+        }  
+    }
+}
+
+#register{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+#photo{
+    position: relative;
+    div{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        display: flex;
+
+        bottom: 10px;
+        right: 5px;
+        border-radius: 50%;
+        background-color: var(--ion-color-primary);
+        ion-input{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+        ion-icon{
+            position: absolute;
+            right: 15%;
+            top: 15%;
+        }
+    }
+    img{
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+    }
+
+}
+

@@ -1,0 +1,51 @@
+<ion-grid id="container" mode="ios" color="primary">
+    
+  <ion-row id="logo">
+    <ion-img src="../../../assets/image/logo3.png"></ion-img> 
+  </ion-row>
+  
+  <ion-row id="form" class="ion-justify-content-center">
+    <ion-col size="10">
+      <ion-label><h1><b>Login</b></h1></ion-label>
+      <span>Ingresar tu email y contraseña</span>
+    </ion-col>
+    <ion-col size="10">
+      <ion-label position="stacked">Email</ion-label>
+      <div>
+        <ion-input type="email" name="email" [(ngModel)]="email" ></ion-input>
+      </div>
+    </ion-col>
+    <ion-col size="10">
+      <ion-label position="stacked">Password</ion-label>
+      <div>
+        <ion-input type="password" name="password" [(ngModel)]="password" ></ion-input>
+      </div>
+      <ion-label> 
+        <ion-text color="tertiary" routerLink="/boarding/recover">
+          Recuperar contraseña!
+        </ion-text> 
+      </ion-label>
+    </ion-col>
+
+    <ion-col size="10">
+      <ion-checkbox name="rememberMe" [(ngModel)]="rememberMe" labelPlacement="end" class="ion-justify-content-center ion-align-items-center">Recuerdame</ion-checkbox>
+    </ion-col>
+  </ion-row>
+  
+<ion-row id="button">
+  <ion-col size="8">
+    <ion-button (click)="logIn()" color="primary" expand="block">
+      Iniciar Sesion
+    </ion-button>
+  </ion-col>
+  <ion-col size="8">
+    <ion-label>
+        No tienes una cuenta? 
+        <ion-text color="primary" routerLink="/boarding/register">
+          Registrate
+        </ion-text> 
+    </ion-label>
+  </ion-col>
+</ion-row>
+
+</ion-grid>

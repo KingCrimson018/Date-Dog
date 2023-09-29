@@ -1,0 +1,33 @@
+
+<ion-grid class="ion-no-padding" id="container">
+  <ion-row id="title">
+    <ion-label>Sexo</ion-label>
+  </ion-row>
+  <ion-row id="imgs" >
+    <ion-radio-group [(ngModel)]="dogS.newDog.sex">
+      <ion-col id="female" size="5">
+        <ion-radio value="Femenino" ></ion-radio>
+        <img src="../../../assets/image/Female.png" >
+        <ion-label>Femenino</ion-label>
+      </ion-col>
+      <ion-col id="male" size="5" >
+        <ion-radio value="Masculino"></ion-radio>
+        <img src="../../../assets/image/Male.png" >
+        <ion-label>Masculino</ion-label>
+      </ion-col>
+    </ion-radio-group>
+  </ion-row>
+  <ion-row id="buttons">
+    <ion-col size="5" >
+      <ion-button routerLink="/boarding/welcome" id="back" expand="block" >
+        Atras
+      </ion-button>
+    </ion-col>
+    <ion-col size="5">
+      <ion-button  routerLink="/boarding/breed" color="secondary" expand="block" >
+        Siguiente
+      </ion-button>
+    </ion-col>
+
+  </ion-row>
+</ion-grid>
