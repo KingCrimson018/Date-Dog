@@ -116,6 +116,31 @@ export const onCreateDog = functions.firestore
     oRef.update({dogsCant: dogsCant + 1});
   });
 
+export const onUpdateDog = functions.firestore
+  .document("dogs/{id}")
+  .onUpdate(async (snapshot) => {
+    const dogInfo = snapshot.after.data();
+    const dogInfoBefore = snapshot.before.data();
+
+    const heatBefore = dogInfoBefore.heat;
+    const heatAfter = dogInfo.heat;
+
+    if (heatBefore != heatAfter) {
+      const ref = admin.firestore().collection("follow-dogs");
+      const follow = (await ref.where("dogId", "==", dogInfo.id).get()).docs;
+      follow.forEach((follower) => {
+        const msg = {
+          token: follower.data().followerInfo.followedFcmToken,
+          notification: {
+            title: `${dogInfo.name} is on heat now`,
+            body: "Check the dog status",
+          },
+        };
+        admin.messaging().send(msg);
+      });
+    }
+  });
+
 export const onDisableDog = functions.firestore
   .document("dogs/{id}")
   .onDelete(async (snapshot) => {

@@ -71,6 +71,7 @@ export class FollowService {
       followerFirstName: this.userS.logged?.firstName || "",
       followerLastName: this.userS.logged?.lastName || "",
       followerImgUrl: this.userS.logged?.imgProfileUrl || "",
+      followerFcmToken: this.userS.logged?.fcmToken || "",
     }
     let newDogFollowedInfo: DogFollowedInfo = {
       dogId: dog.id,

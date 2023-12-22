@@ -83,22 +83,36 @@ export class DogDetailsPage implements OnInit {
     private alertController: AlertController
   ) {
     this.dog = JSON.parse(localStorage.getItem('dogDetails') || "") as Dog 
-    this.fs.collection<Dog>("dogs").doc(this.dog.id).valueChanges().subscribe(res => {
-      this.dog = res || {
-        name: '',
-        dob: new Date(),
-        ownerId: '',
-        active: false,
-        ownerName: '',
-        id: '',
-        breed: '',
-        sex: '',
-        followersCant: 0
-      }
-    })
+    setTimeout(() => {
+      this.fs.collection<Dog>("dogs").doc(this.dog.id).valueChanges().subscribe(res => {
+        this.dog = res || {
+          name: '',
+          dob: new Date(),
+          ownerId: '',
+          active: false,
+          ownerName: '',
+          id: '',
+          breed: '',
+          sex: '',
+          followersCant: 0
+        }
+
+        this.editingDog = res || {
+          name: '',
+          dob: new Date(),
+          ownerId: '',
+          active: false,
+          ownerName: '',
+          id: '',
+          breed: '',
+          sex: '',
+          followersCant: 0
+        }
+
+      })
+    }, 500)
     this.startDate =  new Date(this.dog.heat?.startDate || '')
     this.endDate =  new Date(this.dog.heat?.endDate || '')
-    this.editingDog = this.dog
     if(!this.editingDog.aboutMe){
       this.editingDog.aboutMe = "Esta mascota aun no tiene descripcion"
     }
@@ -230,7 +244,7 @@ export class DogDetailsPage implements OnInit {
 
   deletePhotoVaccine(url : string ){
     let vaccinationsUrl = this.dog.vaccinationUrl || []
-    this.dog.photosUrl?.splice(vaccinationsUrl.indexOf(url),1)
+    this.dog.vaccinationUrl?.splice(vaccinationsUrl.indexOf(url),1)
     this.dog.vaccinationUrl = vaccinationsUrl
     console.log(this.editingDog.photosUrl);
     console.log(url);

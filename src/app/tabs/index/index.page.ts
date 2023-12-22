@@ -44,7 +44,9 @@ export class IndexPage implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.getFollowedDogs()
-    },100)
+      this.getDogs()
+      this.filterUsers()
+    },1000)
 
 
   }

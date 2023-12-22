@@ -1,9 +1,8 @@
 #container{
-    background-color: var(--ion-color-tertiary);
     height: auto;
     position: relative;
     #header{
-        background-color: var(--ion-color-light);
+        background-color: var(--ion-color-tertiary);
         border-radius: 0px 0px 25px 25px;
         
         overflow-x: hidden;
@@ -84,7 +83,7 @@
             padding: 1%;
             margin-top: 1.5vh;
             border-radius: 15px;
-            background-color: var(--ion-color-light);
+            background-color: var(--ion-color-tertiary);
             display: flex;
             flex-direction: row;
             justify-content: space-around;
@@ -107,11 +106,6 @@
                     background-color: #ff62432f;
                     color: #FF6243;
                 }
-                #sex{
-                    background-color: #ffae3436;
-                    color: #FFAE34
-
-                }
             }
             .heat{
                 width: 10%;
@@ -125,7 +119,7 @@
             border-radius: 15px;
             margin-top: 2vh;
             height: 70px;
-            background-color: var(--ion-color-light);
+            background-color: var(--ion-color-tertiary);
             display: flex;
             flex-direction: row;
             justify-content: start;
@@ -180,4 +174,21 @@ ion-header{
         height: 7vh;
         background-color: red;
     }
+}
+
+ion-avatar{
+    width: 50px;
+    height: 50px;
+    img{
+        object-fit: cover;
+    }
+}
+
+.male{
+    background-color: #0a5afacc;
+    color: #ffffff;  
+}
+.female{
+    background-color: #fa0a6ecc;
+    color: #ffffff;  
 }

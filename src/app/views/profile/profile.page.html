@@ -58,8 +58,8 @@
           <ion-chip color="primary" mode="ios" id="age">
             <ion-label>{{dog.dob | date: "dd-MMM-YYYY"}}</ion-label>
           </ion-chip>
-          <ion-chip color="primary" mode="ios" id="sex">
-            <ion-label>{{dog.sex}}</ion-label>
+          <ion-chip [color]="dog.sex == 'Masculino' ? 'primary' : 'secondary'" mode="md" id="sex" [class]="dog.sex == 'Masculino' ? 'male' : 'female'">
+            <ion-label><ion-icon slot="start" [name]="dog.sex == 'Masculino' ? 'male-outline' : 'female-outline'" size="large" color="tertiary"></ion-icon></ion-label>
           </ion-chip>
         </div>
         <div class="heat">
